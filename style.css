@@ -1,0 +1,2066 @@
+
+:root {
+    --ivory: #fbf7ed;
+    --cream: #f2e7d2;
+    --gold: #b18a45;
+    --gold2: #d8bd7b;
+    --ink: #3c2d20;
+    --muted: #75624c;
+    --wine: #6e2938;
+    --white: #fffdf8;
+    --shadow: 0 16px 45px rgba(71,49,24,.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+button, a {
+    font: inherit;
+}
+
+/* MUSIC BUTTON */
+
+.music-control {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    z-index: 20;
+    border: 1px solid var(--gold);
+    background: #fffaf0;
+    color: var(--ink);
+    border-radius: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+/* COVER PAGE */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 48px 18px;
+
+    background: radial-gradient(
+        circle at 50% 45%,
+        #fffdf8 0,
+        #f7efdf 56%,
+        #e9d9bb 100%
+    );
+}
+
+.hero:before,
+.hero:after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(177,138,69,.7);
+    pointer-events: none;
+}
+
+.hero:after {
+    inset: 26px;
+    border: 1px solid rgba(177,138,69,.28);
+}
+
+.ornament {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(177,138,69,.22);
+    border-radius: 50%;
+    filter: blur(.2px);
+}
+
+.ornament.one {
+    top: -95px;
+    left: -80px;
+}
+
+.ornament.two {
+    bottom: -100px;
+    right: -75px;
+}
+
+.hero-grid {
+    width: min(1100px, 100%);
+    display: grid;
+
+    grid-template-columns:
+        minmax(120px, 1fr)
+        minmax(260px, 2fr)
+        minmax(120px, 1fr);
+
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.deity {
+    width: min(100%, 190px);
+    height: 230px;
+    object-fit: contain;
+    justify-self: center;
+    opacity: 0;
+
+    animation: riseIn 1.4s .25s forwards;
+
+    filter: drop-shadow(
+        0 10px 12px rgba(95,66,30,.13)
+    );
+}
+
+.deity.right {
+    animation-delay: .55s;
+}
+
+.hero-copy {
+    opacity: 0;
+    animation: fadeIn 1.5s .8s forwards;
+}
+
+.symbol {
+    font-size: clamp(30px,5vw,48px);
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.eyebrow {
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+h1 {
+    font-size: clamp(42px,7vw,76px);
+    font-weight: normal;
+    line-height: 1.02;
+    margin: 18px 0;
+    color: #805d2d;
+}
+
+.amp {
+    display: block;
+    font-style: italic;
+    font-size: .5em;
+    margin: 5px 0;
+    color: var(--wine);
+}
+
+.date {
+    font-size: clamp(17px,2.5vw,23px);
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-top: 18px;
+}
+
+.blessing {
+    font-style: italic;
+    color: var(--wine);
+    margin-top: 14px;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    animation: bob 2s infinite;
+}
+
+.scroll-hint span {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* COMMON SECTIONS */
+
+section {
+    padding: 78px 20px;
+}
+
+.section-inner {
+    width: min(950px,100%);
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin: 0 0 12px;
+    color: #805d2d;
+    font-size: clamp(30px,5vw,43px);
+    font-weight: normal;
+}
+
+.section-sub {
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 auto 35px;
+    max-width: 680px;
+    line-height: 1.7;
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+    background: var(--gold2);
+    margin: 18px auto 28px;
+    position: relative;
+}
+
+.divider:after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--ivory);
+    padding: 0 9px;
+    color: var(--gold);
+}
+
+.paper {
+    background: var(--white);
+    border: 1px solid rgba(177,138,69,.35);
+    padding: clamp(22px,4vw,42px);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.paper:before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(177,138,69,.18);
+    pointer-events: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.gurbani {
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--wine);
+    font-weight: bold;
+}
+
+.satnam {
+    font-size: 26px;
+    font-style: italic;
+    color: #805d2d;
+    margin: 8px 0 20px;
+}
+
+.names {
+    font-size: clamp(32px,5vw,48px);
+    font-style: italic;
+    color: #805d2d;
+    margin: 12px 0;
+}
+
+/* SECOND OPENING PAGE */
+
+.couple-opening {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(
+        135deg,
+        #f8f0df,
+        #fffdf8 52%,
+        #ead9b8
+    );
+}
+
+.couple-photo {
+    display: block;
+    width: min(340px,80%);
+    max-height: 430px;
+    object-fit: cover;
+    margin: 22px auto;
+    border: 7px solid #fffdf8;
+    outline: 1px solid #c5a66a;
+    box-shadow: var(--shadow);
+}
+
+/* FAMILY */
+
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+    margin-top: 26px;
+}
+
+.family-card {
+    background: #fffdf8;
+    border: 1px solid rgba(177,138,69,.35);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(71,49,24,.06);
+}
+
+.family-card h3 {
+    font-size: 23px;
+    font-weight: normal;
+    color: #805d2d;
+    margin: 0 0 12px;
+}
+
+.family-card p {
+    line-height: 1.7;
+    margin: 5px 0;
+}
+
+/* WEDDING EVENTS */
+
+.events {
+    display: grid;
+    gap: 22px;
+}
+
+.day-card {
+    background: var(--white);
+    border: 1px solid rgba(177,138,69,.38);
+    padding: 26px;
+    box-shadow: var(--shadow);
+}
+
+.day-heading {
+    text-align: center;
+    color: var(--wine);
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
+
+.event {
+    padding: 17px 0;
+    border-top: 1px solid #e7d9bf;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.event:first-of-type {
+    border-top: 0;
+}
+
+.event h4 {
+    margin: 0 0 5px;
+    font-size: 19px;
+    color: #805d2d;
+}
+
+.event p {
+    margin: 4px 0;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.event-time {
+    font-weight: bold;
+    color: var(--wine);
+    white-space: nowrap;
+}
+
+.map-link,
+.call-link {
+    display: inline-block;
+    margin-top: 7px;
+    color: #805d2d;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold2);
+    font-size: 14px;
+}
+
+/* FAMILY MESSAGES */
+
+.messages {
+    display: grid;
+    gap: 16px;
+}
+
+.message {
+    background: var(--white);
+    border: 1px solid rgba(177,138,69,.35);
+    padding: 24px;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.message strong {
+    color: var(--wine);
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    max-width: 650px;
+    margin: 30px auto 0;
+}
+
+.time-box {
+    background: #fffdf8;
+    border: 1px solid var(--gold2);
+    padding: 18px 8px;
+    text-align: center;
+}
+
+.time-box b {
+    display: block;
+    font-size: clamp(27px,5vw,40px);
+    font-weight: normal;
+    color: #805d2d;
+}
+
+.time-box span {
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+}
+
+.contact-card {
+    padding: 22px;
+    background: #fffdf8;
+    border: 1px solid rgba(177,138,69,.35);
+    text-align: center;
+}
+
+.contact-card h3 {
+    margin: 0 0 8px;
+    color: #805d2d;
+    font-weight: normal;
+}
+
+.contact-card p {
+    margin: 5px 0;
+    color: var(--muted);
+}
+
+.call-link {
+    border: 1px solid var(--gold);
+    padding: 9px 16px;
+    border-radius: 24px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #3d2d25;
+    color: #f7ecd8;
+    text-align: center;
+    padding: 34px 20px;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #e1c58b;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* KEYFRAMES */
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bob {
+    0%,100% {
+        transform: translate(-50%,0);
+    }
+
+    50% {
+        transform: translate(-50%,7px);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:680px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+    }
+
+    .hero-copy {
+        grid-column: 1/-1;
+        grid-row: 1;
+    }
+
+    .deity {
+        height: 155px;
+        width: 100%;
+        max-width: 145px;
+    }
+
+    .family-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event {
+        grid-template-columns: 1fr;
+    }
+
+    .event-time {
+        white-space: normal;
+    }
+
+    section {
+        padding: 58px 15px;
+    }
+
+    .hero:before {
+        inset: 10px;
+    }
+
+    .hero:after {
+        inset: 17px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *:before,
+    *:after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.family-blessing {
+    max-width: 850px;
+    margin: 35px auto 0;
+    padding: 42px 25px;
+
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 25px;
+
+    background: #fffdf8;
+    border: 1px solid #e4d2ad;
+    box-shadow: 0 10px 30px rgba(71,49,24,0.06);
+}
+
+.blessing-person {
+    text-align: center;
+}
+
+.blessing-person h3 {
+    color: #805d2d;
+    font-size: clamp(17px, 2.2vw, 23px);
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.blessing-person span {
+    color: #b18a45;
+    font-style: italic;
+    font-size: 17px;
+}
+
+.blessing-person p {
+    color: #75624c;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.gold-divider {
+    width: 1px;
+    height: 110px;
+    background: #d8bd7b;
+}
+
+@media(max-width:600px) {
+    .family-blessing {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 30px 15px;
+    }
+
+    .gold-divider {
+        width: 70%;
+        height: 1px;
+        margin: auto;
+    }
+}
+
+
+/* =====================================
+   ROYAL PEACOCK WEDDING COVER
+   ===================================== */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 65px 25px 85px;
+
+    background:
+        radial-gradient(ellipse at 50% 40%,
+            #fffef9 0%,
+            #f9f0df 55%,
+            #e8d2ad 100%);
+}
+
+/* Outer royal golden frame */
+
+.hero:before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 2px solid #bd9652;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero:after {
+    content: "";
+    position: absolute;
+    inset: 23px;
+    border: 1px solid rgba(177,138,69,.55);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Floral arch behind the wedding names */
+
+.hero-grid {
+    width: min(1120px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Grand arch */
+
+.hero-grid:before {
+    content: "";
+    position: absolute;
+    width: 66%;
+    height: 115%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #bd9652;
+    border-bottom: 0;
+    border-radius: 260px 260px 0 0;
+    box-shadow:
+        inset 0 0 0 7px rgba(255,255,255,.5),
+        0 0 25px rgba(128,83,45,.12);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Peacock feather ornaments */
+
+.ornament {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    border: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at 50% 25%,
+            #e9c56e 0 5%,
+            #167b70 7% 15%,
+            #07504c 17% 24%,
+            transparent 27%),
+        radial-gradient(ellipse at 50% 25%,
+            #c79a48 0 20%,
+            #287e73 22% 35%,
+            transparent 38%);
+    opacity: .85;
+    z-index: 1;
+}
+
+.ornament.one {
+    top: 8%;
+    left: 3%;
+    transform: rotate(-28deg);
+}
+
+.ornament.two {
+    bottom: 8%;
+    right: 3%;
+    transform: rotate(28deg);
+}
+
+/* Flower decoration */
+
+.hero-grid:after {
+    content: "✿  ❀  ✿";
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b58b49;
+    font-size: 25px;
+    letter-spacing: 14px;
+    white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(128,83,45,.15);
+}
+
+/* Side images */
+
+.hero .deity {
+    display: block;
+    width: 100%;
+    max-width: 175px;
+    height: 255px;
+    object-fit: contain;
+    padding: 9px;
+    box-sizing: border-box;
+    background: linear-gradient(145deg,#fffdf8,#f0dfbd);
+    border: 2px solid #bd9652;
+    border-radius: 110px 110px 12px 12px;
+    box-shadow:
+        0 12px 28px rgba(91,61,25,.18),
+        inset 0 0 0 4px rgba(255,255,255,.65);
+    opacity: 1;
+    animation: peacockFloat 5s ease-in-out infinite;
+}
+
+.hero .deity.right {
+    animation-delay: 1s;
+}
+
+/* Center wedding details */
+
+.hero-copy {
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    text-align: center;
+    padding: 45px 15px;
+    box-sizing: border-box;
+    background: rgba(255,252,244,.48);
+    border-top: 1px solid #c6a363;
+    border-bottom: 1px solid #c6a363;
+    box-shadow: 0 10px 35px rgba(100,70,30,.06);
+}
+
+.hero .symbol {
+    font-size: 48px;
+    color: #a77a35;
+    margin-bottom: 12px;
+}
+
+.hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: .22em;
+    line-height: 1.8;
+    color: #806342;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: "Palatino Linotype", Georgia, serif;
+    font-size: clamp(42px,5.5vw,72px);
+    line-height: 1.1;
+    font-weight: normal;
+    color: #80532d;
+    margin: 22px 0;
+    text-shadow: 1px 2px 3px rgba(128,83,45,.12);
+}
+
+.hero .amp {
+    display: block;
+    font-size: .48em;
+    color: #9b454b;
+    margin: 7px 0;
+}
+
+.hero .date {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    border-top: 1px solid #bd9652;
+    border-bottom: 1px solid #bd9652;
+    color: #80532d;
+    font-size: 21px;
+    letter-spacing: .18em;
+}
+
+.hero .blessing {
+    margin-top: 18px;
+    color: #93464d;
+    font-size: 19px;
+    font-style: italic;
+}
+
+/* Scroll indicator */
+
+.hero .scroll-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    width: max-content;
+    text-align: center;
+    color: #806342;
+    font-size: 11px;
+    letter-spacing: .18em;
+    z-index: 5;
+}
+
+.hero .scroll-hint span {
+    display: block;
+    font-size: 23px;
+    margin-top: 7px;
+    animation: peacockArrow 1.4s infinite;
+}
+
+/* Music button */
+
+.music-control {
+    z-index: 20;
+    background: #fffaf0;
+    color: #704b2b;
+    border: 1px solid #bd9652;
+    box-shadow: 0 5px 18px rgba(95,66,30,.15);
+}
+
+/* Animations */
+
+@keyframes peacockFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+@keyframes peacockArrow {
+    0%,100% { transform: translateY(0); opacity: .6; }
+    50% { transform: translateY(7px); opacity: 1; }
+}
+
+/* Mobile responsive */
+
+@media(max-width:620px) {
+
+    .hero {
+        padding: 65px 28px 85px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .hero-grid:before {
+        width: 94%;
+        height: 70%;
+    }
+
+    .hero-grid:after {
+        font-size: 17px;
+        letter-spacing: 7px;
+        top: -25px;
+    }
+
+    .hero-copy {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        padding: 32px 8px;
+    }
+
+    .hero .deity {
+        max-width: 135px;
+        height: 175px;
+    }
+
+    .hero h1 {
+        font-size: clamp(37px,9vw,50px);
+    }
+
+    .hero .symbol {
+        font-size: 38px;
+    }
+
+    .hero .eyebrow {
+        font-size: 9px;
+        letter-spacing: .12em;
+    }
+
+    .hero .date {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+
+    .hero .blessing {
+        font-size: 16px;
+    }
+
+    .ornament {
+        width: 65px;
+        height: 100px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .hero .deity,
+    .hero .scroll-hint span {
+        animation: none;
+    }
+}
+
+
+/* =================================
+   ROYAL MANDAP WEDDING COVER
+================================= */
+
+.hero {
+    min-height: 100svh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 55px 15px 75px;
+    background: #fffdf8;
+    isolation: isolate;
+}
+
+/* Remove old decorative borders */
+
+.hero::before,
+.hero::after {
+    display: none;
+}
+
+/* Main invitation card */
+
+.invitation-card {
+    width: min(92vw, 760px);
+    margin: auto;
+    position: relative;
+}
+
+/* Mandap background image */
+
+.marble-frame {
+    width: 200%;
+    aspect-ratio: 2 / 4;
+    position: relative;
+
+    background-image: url("flowers.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Text inside the mandap */
+
+.invitation-content {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 56%;
+    text-align: center;
+    color: #634526;
+    z-index: 2;
+}
+
+/* Invitation lines */
+
+.blessing-line {
+    font-size: clamp(10px, 1.5vw, 15px);
+    letter-spacing: 1.5px;
+    margin: 0 0 10px;
+    color: #805d36;
+}
+
+.parents-line {
+    font-size: clamp(10px, 1.4vw, 14px);
+    font-style: italic;
+    margin: 8px 0 15px;
+    color: #756044;
+}
+
+/* Couple names */
+
+.invitation-content h1 {
+    font-family: "Palatino Linotype", Georgia, serif;
+    font-size: clamp(23px, 4.5vw, 48px);
+    line-height: 1.2;
+    font-weight: normal;
+    color: #80532d;
+    margin: 12px 0;
+    text-shadow: 0 1px 3px rgba(255,255,255,.8);
+}
+
+.invitation-content h1 span {
+    color: #a34e50;
+    font-style: italic;
+}
+
+/* Golden divider */
+
+.invitation-content .gold-divider {
+    width: 65%;
+    height: 1px;
+    background: #bd9652;
+    margin: 15px auto;
+    position: relative;
+}
+
+.invitation-content .gold-divider span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fffaf0;
+    padding: 0 9px;
+    color: #a77a35;
+}
+
+/* Invitation message */
+
+.invitation-text {
+    font-size: clamp(10px, 1.4vw, 14px);
+    line-height: 1.6;
+    color: #705638;
+    margin: 12px 0;
+}
+
+/* Wedding date */
+
+.wedding-date {
+    font-size: clamp(14px, 2.2vw, 22px);
+    letter-spacing: 1.5px;
+    color: #8b5730;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.wedding-time {
+    font-size: clamp(10px, 1.3vw, 13px);
+    font-style: italic;
+    color: #805d36;
+    margin: 10px 0 0;
+}
+
+/* Scroll hint */
+
+.hero .scroll-hint {
+    bottom: 15px;
+    z-index: 5;
+}
+
+/* Mobile cover */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 45px 5px 65px;
+        min-height: 100svh;
+    }
+
+    .invitation-card {
+        width: 100%;
+    }
+
+    .invitation-content {
+        width: 55%;
+        top: 55%;
+    }
+
+    .blessing-line {
+        letter-spacing: .5px;
+    }
+
+    .parents-line {
+        margin-bottom: 8px;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(19px, 5vw, 29px);
+    }
+
+    .invitation-content .gold-divider {
+        margin: 10px auto;
+    }
+
+    .invitation-text {
+        line-height: 1.4;
+    }
+
+    .wedding-date {
+        letter-spacing: .5px;
+        margin: 9px 0;
+    }
+}
+
+
+/* =================================
+   COVER PAGE - TEXT POSITION FIX
+================================= */
+
+/* Keep the complete mandap visible */
+.hero {
+    min-height: 100svh;
+    padding: 25px 12px 65px;
+}
+
+/* Adjust mandap size according to screen height */
+.invitation-card {
+    width: min(92vw, 82svh, 760px);
+    margin: auto;
+}
+
+/* Keep text inside the empty mandap area */
+.invitation-content {
+    top: 65%;
+    left: 50%;
+    width: 58%;
+    transform: translate(-50%, -50%);
+    padding: 8px 0;
+}
+
+/* Reduce name size slightly */
+.invitation-content h1 {
+    font-size: clamp(20px, 3.2vw, 36px);
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+/* Adjust text spacing */
+.blessing-line {
+    margin-bottom: 7px;
+}
+
+.parents-line {
+    margin: 6px 0 10px;
+}
+
+.invitation-content .gold-divider {
+    margin: 10px auto;
+}
+
+.invitation-text {
+    font-size: clamp(10px, 1.2vw, 13px);
+    line-height: 1.5;
+    margin: 9px 0;
+}
+
+.wedding-date {
+    font-size: clamp(13px, 1.8vw, 19px);
+    margin: 10px 0;
+}
+
+.wedding-time {
+    margin-top: 8px;
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+
+    .invitation-card {
+        width: min(96vw, 82svh);
+    }
+
+    .invitation-content {
+        top: 64%;
+        width: 58%;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(17px, 5vw, 25px);
+    }
+
+    .blessing-line,
+    .parents-line {
+        font-size: 9px;
+    }
+
+    .invitation-text {
+        font-size: 9px;
+    }
+
+    .wedding-date {
+        font-size: 13px;
+    }
+
+    .wedding-time {
+        font-size: 9px;
+    }
+}
+
+
+
+/* =====================================
+   FINAL COVER SIZE & TEXT ALIGNMENT
+===================================== */
+
+.hero {
+    width: 100%;
+    min-height: 100svh;
+    padding: 25px 10px 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Increase mandap image size */
+.invitation-card {
+    width: min(96vw, 680px);
+    max-width: 680px;
+    margin: auto;
+}
+
+.marble-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Keep all invitation text in the central opening */
+.invitation-content {
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+    padding: 0;
+}
+
+/* Blessing text */
+.blessing-line {
+    font-size: clamp(9px, 1.1vw, 12px);
+    margin: 0 0 5px;
+    letter-spacing: .5px;
+}
+
+.parents-line {
+    font-size: clamp(9px, 1.1vw, 12px);
+    margin: 5px 0 9px;
+}
+
+/* Couple names */
+.invitation-content h1 {
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.15;
+    margin: 8px 0;
+    white-space: normal;
+}
+
+/* Divider */
+.invitation-content .gold-divider {
+    width: 65%;
+    margin: 9px auto;
+}
+
+/* Invitation message */
+.invitation-text {
+    font-size: clamp(9px, 1.1vw, 12px);
+    line-height: 1.4;
+    margin: 8px 0;
+}
+
+/* Date */
+.wedding-date {
+    font-size: clamp(13px, 1.7vw, 18px);
+    margin: 9px 0;
+    letter-spacing: 1px;
+}
+
+.wedding-time {
+    font-size: clamp(9px, 1.1vw, 12px);
+    margin-top: 6px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .invitation-card {
+        width: 100%;
+    }
+
+    .invitation-content {
+        top: 64%;
+        width: 51%;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(17px, 4.5vw, 24px);
+    }
+
+    .blessing-line,
+    .parents-line {
+        font-size: 8px;
+    }
+
+    .invitation-text {
+        font-size: 8px;
+    }
+
+    .wedding-date {
+        font-size: 12px;
+    }
+
+    .wedding-time {
+        font-size: 8px;
+    }
+}
+
+
+
+/* ===== COVER TEXT ALIGNMENT FINAL FIX ===== */
+
+.invitation-content {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 46%;
+    max-width: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 0 5px;
+    z-index: 3;
+}
+
+/* Blessing */
+.invitation-content .blessing-line {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+}
+
+/* Family line */
+.invitation-content .parents-line {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 14px;
+}
+
+/* Couple names */
+.invitation-content h1 {
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.25;
+    text-align: center;
+    margin: 0;
+    white-space: normal;
+}
+
+/* Divider */
+.invitation-content .gold-divider {
+    margin: 10px auto;
+    width: 60%;
+}
+
+/* Invitation sentence */
+.invitation-content .invitation-text {
+    width: 100%;
+    max-width: 260px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+/* Date */
+.invitation-content .wedding-date {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 5px 0 8px;
+    text-align: center;
+}
+
+/* Bottom blessing */
+.invitation-content .wedding-time {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .invitation-content {
+    top: 62%;
+    width: 58%;
+    max-width: none;
+    padding: 0 3px;
+}
+
+    .invitation-content .blessing-line {
+        font-size: 11px;
+    }
+
+    .invitation-content .parents-line {
+        font-size: 9px;
+        margin-bottom: 8px;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(16px, 4.5vw, 23px);
+    }
+
+    .invitation-content .gold-divider {
+        margin: 7px auto;
+    }
+
+    .invitation-content .invitation-text {
+        font-size: 9.5px;
+        line-height: 1.5;
+        margin-bottom: 7px;
+    }
+
+    .invitation-content .wedding-date {
+        font-size: 11px;
+        margin: 12px 5;
+    }
+
+    .invitation-content .wedding-time {
+        font-size: 10px;
+    }
+}
+
+
+
+/* SECOND OPENING PAGE PHOTOS */
+
+.couple-opening .cover-ganesh {
+    display: block;
+    width: 115px;
+    height: 125px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+}
+
+.couple-opening .couple-photo {
+    display: block;
+    width: min(100%, 480px);
+    aspect-ratio: 3 / 2;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    margin: 22px auto;
+    border-radius: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .couple-opening .cover-ganesh {
+        width: 100px;
+        height: 110px;
+        margin-bottom: 15px;
+    }
+
+    .couple-opening .couple-photo {
+        width: 90%;
+        aspect-ratio: 3 / 2;
+        margin: 18px auto;
+    }
+}
+
+
+/* FINAL MOBILE COVER FIX */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 45px 8px 65px;
+    }
+
+    .invitation-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .invitation-content {
+        top: 62%;
+        width: 62%;
+        padding: 0 3px;
+    }
+
+    .invitation-content .blessing-line {
+        font-size: 11px;
+        line-height: 1.4;
+        margin-bottom: 5px;
+    }
+
+    .invitation-content .parents-line {
+        font-size: 10px;
+        line-height: 1.4;
+        margin-bottom: 7px;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(19px, 5.5vw, 26px);
+        line-height: 1.2;
+        margin: 5px 0;
+    }
+
+    .invitation-content .gold-divider {
+        margin: 8px auto;
+    }
+
+    .invitation-content .invitation-text {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 6px;
+    }
+
+    .invitation-content .wedding-date {
+        font-size: 13px;
+        line-height: 1.4;
+        margin: 8px 0;
+        letter-spacing: .5px;
+    }
+
+    .invitation-content .wedding-time {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+}
+
+/* ==========================================
+   FINAL WEDDING COVER FIX - ALL SCREEN SIZES
+========================================== */
+
+.hero {
+    min-height: 100svh;
+    min-height: 100vh;
+    padding: 55px 12px 65px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fffdf8;
+}
+
+.invitation-card {
+    width: min(94vw, 680px, 78svh);
+    max-width: 100%;
+    margin: auto;
+    flex-shrink: 0;
+}
+
+.marble-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    background-image: url("flowers.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+/* TEXT POSITION */
+
+.invitation-content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52%;
+    max-width: 340px;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* BLESSING */
+
+.invitation-content .blessing-line {
+    font-size: clamp(11px, 1.4vw, 16px);
+    line-height: 1.5;
+    margin: 0 0 7px;
+}
+
+/* FAMILY LINE */
+
+.invitation-content .parents-line {
+    font-size: clamp(10px, 1.2vw, 14px);
+    line-height: 1.5;
+    margin: 0 0 9px;
+}
+
+/* NAMES */
+
+.invitation-content h1 {
+    font-size: clamp(20px, 3vw, 34px);
+    line-height: 1.2;
+    margin: 5px 0;
+    white-space: normal;
+}
+
+/* DIVIDER */
+
+.invitation-content .gold-divider {
+    width: 60%;
+    margin: 8px auto;
+}
+
+/* INVITATION TEXT */
+
+.invitation-content .invitation-text {
+    width: 100%;
+    max-width: 280px;
+    font-size: clamp(10px, 1.2vw, 14px);
+    line-height: 1.5;
+    margin: 0 0 7px;
+}
+
+/* WEDDING DATE */
+
+.invitation-content .wedding-date {
+    font-size: clamp(13px, 1.7vw, 19px);
+    line-height: 1.4;
+    margin: 6px 0;
+    letter-spacing: .5px;
+}
+
+/* BOTTOM TEXT */
+
+.invitation-content .wedding-time {
+    font-size: clamp(10px, 1.1vw, 13px);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 45px 10px 65px;
+    }
+
+    .invitation-card {
+        width: min(96vw, 78svh);
+    }
+
+    .invitation-content {
+        top: 60%;
+        width: 57%;
+        max-width: none;
+        padding: 0 3px;
+    }
+
+    .invitation-content .blessing-line {
+        font-size: clamp(10px, 3vw, 12px);
+        margin-bottom: 5px;
+    }
+
+    .invitation-content .parents-line {
+        font-size: clamp(9px, 2.7vw, 11px);
+        margin-bottom: 6px;
+    }
+
+    .invitation-content h1 {
+        font-size: clamp(16px, 4.8vw, 24px);
+        line-height: 1.2;
+        margin: 4px 0;
+    }
+
+    .invitation-content .gold-divider {
+        margin: 6px auto;
+    }
+
+    .invitation-content .invitation-text {
+        font-size: clamp(9px, 2.8vw, 11px);
+        line-height: 1.45;
+        margin-bottom: 5px;
+    }
+
+    .invitation-content .wedding-date {
+        font-size: clamp(11px, 3.2vw, 14px);
+        margin: 6px 0;
+    }
+
+    .invitation-content .wedding-time {
+        font-size: clamp(9px, 2.8vw, 11px);
+    }
+
+    .hero .scroll-hint {
+        bottom: 12px;
+        font-size: 10px;
+    }
+
+    .music-control {
+        top: 12px;
+        right: 12px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 360px) {
+
+    .invitation-content {
+        width: 60%;
+        top: 59%;
+    }
+
+    .invitation-content .blessing-line {
+        font-size: 10px;
+    }
+
+    .invitation-content .parents-line {
+        font-size: 9px;
+    }
+
+    .invitation-content h1 {
+        font-size: 16px;
+    }
+
+    .invitation-content .invitation-text {
+        font-size: 9px;
+    }
+
+    .invitation-content .wedding-date {
+        font-size: 11px;
+    }
+
+    .invitation-content .wedding-time {
+        font-size: 9px;
+    }
+}
+
+/* ==========================================
+   MANDAP TEXT OVERLAP FIX
+========================================== */
+
+.invitation-content {
+    top: 64% !important;      /* टेक्स्ट को मालाओं से थोड़ा नीचे लाने के लिए */
+    width: 39% !important;    /* टेक्स्ट को अंदरूनी खंभों के बीच सीमित रखने के लिए */
+    max-width: 245px !important;
+    padding: 0 4px !important;
+}
+
+.invitation-content .blessing-line {
+    font-size: clamp(9px, 1.1vw, 13px) !important;
+    margin-bottom: 4px !important;
+}
+
+.invitation-content .parents-line {
+    font-size: clamp(8.5px, 1vw, 12px) !important;
+    margin-bottom: 6px !important;
+}
+
+.invitation-content h1 {
+    font-size: clamp(16px, 2.3vw, 26px) !important;
+    line-height: 1.15 !important;
+    margin: 4px 0 !important;
+}
+
+.invitation-content .gold-divider {
+    width: 50% !important;
+    margin: 6px auto !important;
+}
+
+.invitation-content .invitation-text {
+    font-size: clamp(8.5px, 1vw, 11.5px) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 5px !important;
+}
+
+.invitation-content .wedding-date {
+    font-size: clamp(11px, 1.4vw, 15px) !important;
+    margin: 5px 0 !important;
+}
+
+.invitation-content .wedding-time {
+    font-size: clamp(8px, 0.95vw, 11px) !important;
+}
+
+/* मोबाइल स्क्रीन के लिए एडजस्टमेंट */
+@media (max-width: 600px) {
+    .invitation-content {
+        top: 63.5% !important;
+        width: 41% !important;
+        max-width: none !important;
+    }
+
+    .invitation-content .blessing-line {
+        font-size: 7.5px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .invitation-content .parents-line {
+        font-size: 7px !important;
+        margin-bottom: 3px !important;
+    }
+
+    .invitation-content h1 {
+        font-size: 13px !important;
+        margin: 2px 0 !important;
+    }
+
+    .invitation-content .gold-divider {
+        margin: 4px auto !important;
+    }
+
+    .invitation-content .invitation-text {
+        font-size: 7px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 3px !important;
+    }
+
+    .invitation-content .wedding-date {
+        font-size: 9.5px !important;
+        margin: 3px 0 !important;
+    }
+
+    .invitation-content .wedding-time {
+        font-size: 7px !important;
+    }
+}
+
+
+/* ==========================================
+   FINAL POLISH FOR CLARITY & CARD SIZE
+========================================== */
+
+/* टेक्स्ट को पूरी तरह गहरा और साफ़ रखने के लिए */
+.invitation-content {
+    background: rgba(255, 253, 248, 0.85) !important;
+    border-radius: 12px !important;
+    padding: 6px 8px !important;
+}
+
+.invitation-content p,
+.invitation-content h1 {
+    opacity: 1 !important;
+    color: #5c3d1e !important;
+}
+
+/* मोबाइल पर मंडप कार्ड को थोड़ा बड़ा दिखाने के लिए */
+@media (max-width: 600px) {
+    .hero {
+        padding: 40px 2px 60px !important;
+    }
+    
+    .invitation-card {
+        width: 98vw !important;
+        max-width: 98vw !important;
+    }
+}
+
+
+
+/* ==========================================
+   FIX GOLD DIVIDER OVERLAPPING TEXT
+========================================== */
+
+.invitation-content .gold-divider {
+    height: auto !important;
+    background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 6px auto !important;
+}
+
+/* स्टार के दोनों तरफ़ साफ़ रेखा बनाने के लिए */
+.invitation-content .gold-divider::before,
+.invitation-content .gold-divider::after {
+    content: "" !important;
+    flex: 1 !important;
+    height: 1px !important;
+    background: #bd9652 !important;
+}
+
+/* स्टार का सफेद बॉक्स हटाने के लिए */
+.invitation-content .gold-divider span {
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    font-size: 12px !important;
+}
+
+
+
+/* ==========================================
+   UNIVERSAL MOBILE COMPATIBILITY FIX
+   (All Android & iOS Devices)
+========================================== */
+
+html, body {
+    overflow-x: hidden !important; /* स्क्रीन को दाएँ-बाएँ खिसकने से रोकने के लिए */
+    width: 100% !important;
+    -webkit-text-size-adjust: 100%; /* iPhone Safari में फ़ॉन्ट को अपने आप बड़ा होने से रोकने के लिए */
+}
+
+/* सभी बटन्स और लिंक्स को मोबाइल पर आसानी से टच करने योग्य बनाना */
+button, .map-link, .call-link, .music-control {
+    touch-action: manipulation; /* डबल-टैप ज़ूम डिले हटाने के लिए */
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-link {
+    padding: 8px 14px !important;
+    background: #fffaf0 !important;
+    border: 1px solid var(--gold) !important;
+    border-radius: 20px !important;
+    margin-top: 10px !important;
+    font-size: 13px !important;
+}
+
+.call-link {
+    width: 100% !important;
+    max-width: 220px !important;
+    margin: 10px auto 0 !important;
+    font-weight: bold !important;
+}
+
+/* छोटे मोबाइल फ़ोन्स (360px - 480px) के लिए परफेक्ट एडजस्टमेंट */
+@media (max-width: 480px) {
+    /* काउंटडाउन बॉक्स को 2x2 ग्रिड में दिखाना ताकि नंबर बड़े और साफ़ दिखें */
+    .countdown {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        max-width: 300px !important;
+    }
+
+    .time-box {
+        padding: 14px 6px !important;
+    }
+
+    /* प्रोग्राम और कार्ड्स की पैडिंग संतुलित करना */
+    .day-card, .paper, .family-card, .contact-card {
+        padding: 18px 14px !important;
+    }
+
+    .gurbani {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+
+    .names {
+        font-size: 30px !important;
+    }
+
+    .message {
+        font-size: 16px !important;
+        padding: 18px 14px !important;
+    }
+}
