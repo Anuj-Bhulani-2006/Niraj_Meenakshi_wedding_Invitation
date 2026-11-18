@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         : parseFloat(durationParts) * 1000;
 
     // Curtain open hone se pehle 3 second wait
-await new Promise(resolve => setTimeout(resolve, 900));
+await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Start opening
     intro.classList.add("open");
