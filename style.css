@@ -2366,43 +2366,56 @@ button, .map-link, .call-link, .music-control {
     }
 }
 
+
 /* ==========================================
-   RICH COFFEE GRADIENT & VISIBLE PAPER TEXTURE
+   RICH COFFEE GRADIENT + VISIBLE PAPER TEXTURE
+   & SEAMLESS MANDAP BLEND
 ========================================== */
 
 body {
-    background-color: #e6d5be !important;
+    background-color: #dec7a8 !important;
     background-image: 
-        /* 1. बारीक हैंडमेड वेडिंग पेपर / लिनन टेक्सचर */
+        /* 1. स्पष्ट हैंडमेड वेडिंग पेपर / लिनन टेक्सचर */
         repeating-linear-gradient(
             45deg,
-            rgba(115, 78, 40, 0.08) 0px,
-            rgba(115, 78, 40, 0.08) 1px,
+            rgba(105, 68, 32, 0.11) 0px,
+            rgba(105, 68, 32, 0.11) 1px,
             transparent 1px,
             transparent 5px
         ),
         repeating-linear-gradient(
             -45deg,
-            rgba(115, 78, 40, 0.08) 0px,
-            rgba(115, 78, 40, 0.08) 1px,
+            rgba(105, 68, 32, 0.11) 0px,
+            rgba(105, 68, 32, 0.11) 1px,
             transparent 1px,
             transparent 5px
         ),
-        /* 2. मल्टी-टोन लाइट कॉफी, क्रीम और गोल्डन वॉर्म ग्रेडिएंट */
-        radial-gradient(circle at 15% 15%, rgba(255, 250, 240, 0.75) 0%, transparent 50%),
-        radial-gradient(circle at 85% 85%, rgba(194, 158, 114, 0.55) 0%, transparent 55%),
-        linear-gradient(135deg, #f6ece0 0%, #e6d2b8 45%, #d6bc9b 100%) !important;
+        /* 2. खूबसूरत मल्टी-कलर वार्म कॉफी, क्रीम और गोल्डन ग्रेडिएंट */
+        radial-gradient(circle at 18% 18%, rgba(255, 249, 235, 0.85) 0%, transparent 48%),
+        radial-gradient(circle at 82% 82%, rgba(176, 134, 86, 0.65) 0%, transparent 55%),
+        linear-gradient(135deg, #f8eee1 0%, #e4cda9 48%, #c9a77c 100%) !important;
     background-attachment: fixed !important;
 }
 
-/* सभी सेक्शन्स को पारदर्शी रखें ताकि पूरा ग्रेडिएंट और टेक्सचर दिखे */
+/* सभी सेक्शन्स को पारदर्शी रखें */
 .hero,
 .couple-opening,
 section {
     background: transparent !important;
 }
 
-/* कार्ड्स को आइवरी-क्रीम रखें ताकि ग्रेडिएंट के ऊपर वे उभर कर दिखें */
+/* मंडप की इमेज के सफेद चौकोर बॉक्स को बैकग्राउंड में मर्ज करने के लिए */
+.marble-frame {
+    mix-blend-mode: multiply !important;
+}
+
+/* मंडप के अंदर के टेक्स्ट बॉक्स का सफेद बैकग्राउंड हटाकर हल्का पारदर्शी रखें */
+.invitation-content {
+    background: rgba(255, 251, 243, 0.45) !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+/* नीचे के बाकी कार्ड्स को आइवरी-क्रीम और गोल्डन बॉर्डर दें */
 .paper,
 .day-card,
 .family-card,
@@ -2410,14 +2423,14 @@ section {
 .message,
 .family-blessing,
 .time-box {
-    background: rgba(255, 252, 246, 0.93) !important;
-    border: 1.5px solid rgba(177, 138, 69, 0.5) !important;
-    box-shadow: 0 12px 32px rgba(82, 52, 24, 0.12) !important;
+    background: rgba(255, 252, 246, 0.92) !important;
+    border: 1.5px solid rgba(177, 138, 69, 0.55) !important;
+    box-shadow: 0 12px 32px rgba(78, 48, 20, 0.14) !important;
     backdrop-filter: blur(4px);
 }
 
-/* Divider के बीच के स्टार का बैकग्राउंड मैच करें */
+/* Divider के स्टार का बैकग्राउंड मैच करें */
 .divider:after {
-    background: #e5d2b9 !important;
+    background: #e1caa9 !important;
     padding: 0 10px !important;
 }
