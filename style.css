@@ -180,7 +180,7 @@ h1 {
 
 .scroll-hint {
     position: absolute;
-    bottom: 130px !important;
+    bottom: 13px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 11px;
@@ -2472,3 +2472,6 @@ body {
 }
 
 
+.hero .scroll-hint {
+    bottom: 130px !important;
+}
