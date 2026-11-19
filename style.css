@@ -2473,41 +2473,37 @@ section {
     z-index: 2;
 }
 
-/* फूलों की बारिश (Flower Drop Animation) */
+/* फूलों की बारिश (Flower Drop - Always on Top) */
 .flower-shower-container {
-    position: absolute;
+    position: fixed;
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: 10;
+    z-index: 100005 !important;
 }
 
 .falling-flower {
-    position: absolute;
-    top: -50px;
+    position: fixed;
+    top: -40px;
     user-select: none;
     pointer-events: none;
-    animation: flowerFall linear forwards;
-    filter: drop-shadow(0 4px 6px rgba(80, 45, 15, 0.25));
+    z-index: 100005 !important;
+    animation: flowerFall linear forwards !important;
+    filter: drop-shadow(0 4px 6px rgba(80, 45, 15, 0.3));
 }
 
 @keyframes flowerFall {
     0% {
         transform: translateY(0) rotate(0deg) translateX(0);
-        opacity: 0;
-    }
-    15% {
         opacity: 1;
     }
     50% {
         transform: translateY(50vh) rotate(180deg) translateX(25px);
-    }
-    85% {
         opacity: 1;
     }
     100% {
-        transform: translateY(108vh) rotate(360deg) translateX(-20px);
-        opacity: 0;
+        transform: translateY(105vh) rotate(360deg) translateX(-20px);
+        opacity: 0.9;
     }
 }
 
