@@ -2450,3 +2450,17 @@ body {
         text-align: left;
     }
 }
+
+
+
+
+/* ==========================================
+   REMOVE WHITE BG FROM MANDAP IMAGE
+========================================== */
+.marble-frame {
+    mix-blend-mode: multiply !important;
+}
+
+.invitation-content {
+    background: transparent !important;
+}
