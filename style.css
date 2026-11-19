@@ -2451,16 +2451,24 @@ body {
     }
 }
 
-
-
-
 /* ==========================================
-   REMOVE WHITE BG FROM MANDAP IMAGE
+   FORCE REMOVE WHITE BG FROM MANDAP IMAGE
 ========================================== */
+.hero, 
+.invitation-card, 
+.marble-frame {
+    isolation: auto !important;
+    background-color: transparent !important;
+}
+
 .marble-frame {
     mix-blend-mode: multiply !important;
+    filter: contrast(1.08) brightness(1.02) !important;
 }
 
 .invitation-content {
     background: transparent !important;
+    box-shadow: none !important;
 }
+
+
