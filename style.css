@@ -2365,39 +2365,33 @@ button, .map-link, .call-link, .music-control {
         letter-spacing: 2px;
     }
 }
-
-/* ==========================================
-   SOLID SOFT COFFEE SHADE + PAPER TEXTURE
-   (Exact Top-Left Shade - No Gradient)
-========================================== */
-
+/*  BG COLOR */
 body {
-    /* बिल्कुल वही बाईं तरफ़ वाला एक समान हल्का कॉफी शेड */
-    background-color: #efe1ce !important;
+    background-color: #f9e4e8 !important;
     background-image: 
-        /* बारीक हैंडमेड वेडिंग पेपर / लिनन टेक्सचर */
         repeating-linear-gradient(
             45deg,
-            rgba(120, 82, 42, 0.08) 0px,
-            rgba(120, 82, 42, 0.08) 1px,
+            rgba(160, 70, 90, 0.07) 0px,
+            rgba(160, 70, 90, 0.07) 1px,
             transparent 1px,
             transparent 5px
         ),
         repeating-linear-gradient(
             -45deg,
-            rgba(120, 82, 42, 0.08) 0px,
-            rgba(120, 82, 42, 0.08) 1px,
+            rgba(160, 70, 90, 0.07) 0px,
+            rgba(160, 70, 90, 0.07) 1px,
             transparent 1px,
             transparent 5px
         ) !important;
     background-attachment: fixed !important;
 }
 
-/* Divider के बीच के स्टार का बैकग्राउंड भी इसी शेड से मैच करें */
 .divider:after {
-    background: #efe1ce !important;
+    background: #f9e4e8 !important;
     padding: 0 10px !important;
 }
+
+
 
 
 
