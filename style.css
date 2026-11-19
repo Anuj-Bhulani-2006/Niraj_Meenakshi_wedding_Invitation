@@ -291,12 +291,7 @@ section {
     min-height: 100svh;
     display: grid;
     place-items: center;
-    background: linear-gradient(
-        135deg,
-        #f8f0df,
-        #fffdf8 52%,
-        #ead9b8
-    );
+    background: transparent !important;
 }
 
 .couple-photo {
@@ -1641,7 +1636,7 @@ footer strong {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fffdf8;
+    background:transparent !important;
 }
 
 .invitation-card {
