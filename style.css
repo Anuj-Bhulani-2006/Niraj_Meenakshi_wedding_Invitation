@@ -2367,45 +2367,42 @@ button, .map-link, .call-link, .music-control {
 }
 
 /* ==========================================
-   LIGHT COFFEE ROYAL TEXTURE BACKGROUND
+   RICH COFFEE GRADIENT & VISIBLE PAPER TEXTURE
 ========================================== */
 
 body {
-    /* बेस लाइट कॉफी शेड और हल्का सा लीनियर ग्रेडिएंट */
-    background-color: #ebe0d0 !important;
+    background-color: #e6d5be !important;
     background-image: 
-        /* 1. हल्का रॉयल वेडिंग मंडला / फ्लोरल जाली पैटर्न */
-        radial-gradient(circle at 50% 50%, rgba(168, 128, 82, 0.08) 2px, transparent 2.5px),
-        radial-gradient(circle at 0% 0%, rgba(168, 128, 82, 0.06) 2px, transparent 2.5px),
-        /* 2. फाइन हैंडमेड पेपर / लिनन फैब्रिक टेक्सचर */
+        /* 1. बारीक हैंडमेड वेडिंग पेपर / लिनन टेक्सचर */
         repeating-linear-gradient(
             45deg,
-            rgba(130, 96, 58, 0.03) 0px,
-            rgba(130, 96, 58, 0.03) 1px,
+            rgba(115, 78, 40, 0.08) 0px,
+            rgba(115, 78, 40, 0.08) 1px,
             transparent 1px,
-            transparent 6px
+            transparent 5px
         ),
         repeating-linear-gradient(
             -45deg,
-            rgba(130, 96, 58, 0.03) 0px,
-            rgba(130, 96, 58, 0.03) 1px,
+            rgba(115, 78, 40, 0.08) 0px,
+            rgba(115, 78, 40, 0.08) 1px,
             transparent 1px,
-            transparent 6px
+            transparent 5px
         ),
-        /* 3. वार्म लाइट कॉफी ग्रेडिएंट बेस */
-        linear-gradient(180deg, #f3eadc 0%, #e6d6c1 50%, #dfd0ba 100%) !important;
-    background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%, 100% 100% !important;
+        /* 2. मल्टी-टोन लाइट कॉफी, क्रीम और गोल्डन वॉर्म ग्रेडिएंट */
+        radial-gradient(circle at 15% 15%, rgba(255, 250, 240, 0.75) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(194, 158, 114, 0.55) 0%, transparent 55%),
+        linear-gradient(135deg, #f6ece0 0%, #e6d2b8 45%, #d6bc9b 100%) !important;
     background-attachment: fixed !important;
 }
 
-/* सभी सेक्शन्स को ट्रांसपेरेंट रखना ताकि कॉफी टेक्सचर पूरी वेबसाइट में दिखे */
+/* सभी सेक्शन्स को पारदर्शी रखें ताकि पूरा ग्रेडिएंट और टेक्सचर दिखे */
 .hero,
 .couple-opening,
 section {
     background: transparent !important;
 }
 
-/* कार्ड्स और बॉक्स को हल्का क्रीम-आइवरी रखना ताकि कॉफी बैकग्राउंड पर वे उभर कर दिखें */
+/* कार्ड्स को आइवरी-क्रीम रखें ताकि ग्रेडिएंट के ऊपर वे उभर कर दिखें */
 .paper,
 .day-card,
 .family-card,
@@ -2413,14 +2410,14 @@ section {
 .message,
 .family-blessing,
 .time-box {
-    background: rgba(255, 251, 244, 0.92) !important;
-    border: 1px solid rgba(177, 138, 69, 0.45) !important;
-    box-shadow: 0 12px 32px rgba(92, 61, 30, 0.10) !important;
+    background: rgba(255, 252, 246, 0.93) !important;
+    border: 1.5px solid rgba(177, 138, 69, 0.5) !important;
+    box-shadow: 0 12px 32px rgba(82, 52, 24, 0.12) !important;
     backdrop-filter: blur(4px);
 }
 
-/* Divider के बीच के स्टार का बैकग्राउंड मैच करना */
+/* Divider के बीच के स्टार का बैकग्राउंड मैच करें */
 .divider:after {
-    background: #ece1d1 !important;
+    background: #e5d2b9 !important;
+    padding: 0 10px !important;
 }
-
