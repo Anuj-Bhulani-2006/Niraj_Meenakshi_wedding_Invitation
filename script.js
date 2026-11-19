@@ -173,29 +173,25 @@ await new Promise(resolve => setTimeout(resolve, 1000));
 
 });
 
+
 /* ==========================================
-   FLOWER DROP ANIMATION ON GURU JI REVEAL
+   DIRECT FLOWER DROP ANIMATION (100% WORKING)
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
-    const intro = document.getElementById("weddingIntro");
-    const guruBox = intro ? intro.querySelector(".guru-reveal") : null;
-
-    if (!intro || !guruBox) return;
-
+(function () {
     const showerContainer = document.createElement("div");
     showerContainer.className = "flower-shower-container";
-    guruBox.appendChild(showerContainer);
+    document.body.appendChild(showerContainer);
 
     const flowers = ["🌸", "🌺", "🌼", "🌹", "🏵️"];
 
-    function createFlower() {
+    function dropSingleFlower() {
         const flower = document.createElement("span");
         flower.className = "falling-flower";
         flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-        flower.style.left = Math.random() * 100 + "vw";
-        flower.style.fontSize = (Math.random() * 16 + 18) + "px";
-        const duration = Math.random() * 2 + 2.5;
+        flower.style.left = (Math.random() * 96) + "vw";
+        flower.style.fontSize = (Math.random() * 16 + 20) + "px";
+        const duration = Math.random() * 1.8 + 2.5;
         flower.style.animationDuration = duration + "s";
         showerContainer.appendChild(flower);
 
@@ -204,21 +200,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }, duration * 1000);
     }
 
-    const observer = new MutationObserver(() => {
-        if (intro.classList.contains("open")) {
-            observer.disconnect();
-            for (let i = 0; i < 20; i++) {
-                setTimeout(createFlower, i * 110);
-            }
-            const flowerInterval = setInterval(() => {
-                if (!document.body.contains(intro)) {
-                    clearInterval(flowerInterval);
-                    return;
-                }
-                createFlower();
-            }, 160);
+    // जैसे ही पर्दा खुलना शुरू हो (1.1 सेकंड बाद), फूलों की बारिश शुरू करें
+    setTimeout(() => {
+        for (let i = 0; i < 22; i++) {
+            setTimeout(dropSingleFlower, i * 100);
         }
-    });
 
-    observer.observe(intro, { attributes: true, attributeFilter: ["class"] });
-});
+        const interval = setInterval(dropSingleFlower, 150);
+
+        // 6.5 सेकंड बाद फूल गिराना बंद करें और कंटेनर हटा दें
+        setTimeout(() => {
+            clearInterval(interval);
+            setTimeout(() => showerContainer.remove(), 3500);
+        }, 6500);
+    }, 1100);
+})();
