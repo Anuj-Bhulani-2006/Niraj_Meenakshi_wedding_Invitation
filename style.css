@@ -2500,3 +2500,24 @@ section {
     background: #e1caa9 !important;
     padding: 0 10px !important;
 }
+
+/* ==========================================
+   ALIGN EVENT TIMING WITH FUNCTION TITLE
+========================================== */
+
+.event {
+    align-items: start !important;
+}
+
+.event-time {
+    padding-top: 2px;
+    text-align: right;
+    line-height: 1.5;
+}
+
+/* मोबाइल पर समय को बाईं ओर साफ़ दिखाने के लिए */
+@media (max-width: 680px) {
+    .event-time {
+        text-align: left;
+    }
+}
