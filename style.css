@@ -2365,3 +2365,62 @@ button, .map-link, .call-link, .music-control {
         letter-spacing: 2px;
     }
 }
+
+/* ==========================================
+   LIGHT COFFEE ROYAL TEXTURE BACKGROUND
+========================================== */
+
+body {
+    /* बेस लाइट कॉफी शेड और हल्का सा लीनियर ग्रेडिएंट */
+    background-color: #ebe0d0 !important;
+    background-image: 
+        /* 1. हल्का रॉयल वेडिंग मंडला / फ्लोरल जाली पैटर्न */
+        radial-gradient(circle at 50% 50%, rgba(168, 128, 82, 0.08) 2px, transparent 2.5px),
+        radial-gradient(circle at 0% 0%, rgba(168, 128, 82, 0.06) 2px, transparent 2.5px),
+        /* 2. फाइन हैंडमेड पेपर / लिनन फैब्रिक टेक्सचर */
+        repeating-linear-gradient(
+            45deg,
+            rgba(130, 96, 58, 0.03) 0px,
+            rgba(130, 96, 58, 0.03) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(130, 96, 58, 0.03) 0px,
+            rgba(130, 96, 58, 0.03) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        /* 3. वार्म लाइट कॉफी ग्रेडिएंट बेस */
+        linear-gradient(180deg, #f3eadc 0%, #e6d6c1 50%, #dfd0ba 100%) !important;
+    background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%, 100% 100% !important;
+    background-attachment: fixed !important;
+}
+
+/* सभी सेक्शन्स को ट्रांसपेरेंट रखना ताकि कॉफी टेक्सचर पूरी वेबसाइट में दिखे */
+.hero,
+.couple-opening,
+section {
+    background: transparent !important;
+}
+
+/* कार्ड्स और बॉक्स को हल्का क्रीम-आइवरी रखना ताकि कॉफी बैकग्राउंड पर वे उभर कर दिखें */
+.paper,
+.day-card,
+.family-card,
+.contact-card,
+.message,
+.family-blessing,
+.time-box {
+    background: rgba(255, 251, 244, 0.92) !important;
+    border: 1px solid rgba(177, 138, 69, 0.45) !important;
+    box-shadow: 0 12px 32px rgba(92, 61, 30, 0.10) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* Divider के बीच के स्टार का बैकग्राउंड मैच करना */
+.divider:after {
+    background: #ece1d1 !important;
+}
+
